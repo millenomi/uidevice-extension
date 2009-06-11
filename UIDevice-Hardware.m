@@ -116,13 +116,18 @@
 {
 	switch ([self platformType])
 	{
-		case UIDevice1GiPhone: return UIDeviceBuiltInSpeaker | UIDeviceBuiltInCamera | UIDeviceBuiltInMicrophone | UIDeviceSupportsExternalMicrophone | UIDeviceSupportsTelephony | UIDeviceSupportsVibration | UIDeviceBuiltInProximitySensor;
-		case UIDevice3GiPhone: return UIDeviceSupportsGPS | UIDeviceBuiltInSpeaker | UIDeviceBuiltInCamera | UIDeviceBuiltInMicrophone | UIDeviceSupportsExternalMicrophone | UIDeviceSupportsTelephony | UIDeviceSupportsVibration | UIDeviceBuiltInProximitySensor;
-		case UIDevice3GSiPhone: return UIDeviceSupportsGPS | UIDeviceBuiltInSpeaker | UIDeviceBuiltInCamera | UIDeviceBuiltInMicrophone | UIDeviceSupportsExternalMicrophone | UIDeviceSupportsTelephony | UIDeviceSupportsVibration | UIDeviceBuiltInProximitySensor | UIDeviceSupportsVideoRecording | UIDeviceSupportsCompass | UIDeviceSupportsAccessibility | UIDeviceSupportsVoiceControl;
-		case UIDeviceUnknowniPhone: return UIDeviceBuiltInSpeaker | UIDeviceBuiltInCamera | UIDeviceBuiltInMicrophone | UIDeviceSupportsExternalMicrophone | UIDeviceSupportsTelephony | UIDeviceSupportsVibration | UIDeviceBuiltInProximitySensor;
+		case UIDevice1GiPhone: return UIDeviceBuiltInSpeaker | UIDeviceBuiltInCamera | UIDeviceBuiltInMicrophone | UIDeviceSupportsExternalMicrophone | UIDeviceSupportsTelephony | UIDeviceSupportsVibration | UIDeviceBuiltInProximitySensor | UIDeviceSupportsBluetooth;
+		case UIDevice3GiPhone: return UIDeviceSupportsGPS | UIDeviceBuiltInSpeaker | UIDeviceBuiltInCamera | UIDeviceBuiltInMicrophone | UIDeviceSupportsExternalMicrophone | UIDeviceSupportsTelephony | UIDeviceSupportsVibration | UIDeviceBuiltInProximitySensor | UIDeviceSupportsBluetooth;
+		case UIDevice3GSiPhone: return UIDeviceSupportsGPS | UIDeviceBuiltInSpeaker | UIDeviceBuiltInCamera | UIDeviceBuiltInMicrophone | UIDeviceSupportsExternalMicrophone | UIDeviceSupportsTelephony | UIDeviceSupportsVibration | UIDeviceBuiltInProximitySensor | UIDeviceSupportsVideoRecording | UIDeviceSupportsCompass | UIDeviceSupportsAccessibility | UIDeviceSupportsVoiceControl | UIDeviceSupportsBluetooth;
+		case UIDeviceUnknowniPhone: return UIDeviceBuiltInSpeaker | UIDeviceBuiltInCamera | UIDeviceBuiltInMicrophone | UIDeviceSupportsExternalMicrophone | UIDeviceSupportsTelephony | UIDeviceSupportsVibration | UIDeviceBuiltInProximitySensor | UIDeviceSupportsBluetooth;
 
 		case UIDevice1GiPod: return 0;
+
+#if __IPHONE_OS_VERSION_MIN_REQUIRED >= 30000
+		case UIDevice2GiPod: return UIDeviceBuiltInSpeaker | UIDeviceSupportsExternalMicrophone | UIDeviceSupportsBluetooth;
+#else
 		case UIDevice2GiPod: return UIDeviceBuiltInSpeaker | UIDeviceSupportsExternalMicrophone;
+#endif
 		case UIDeviceUnknowniPod: return 0;
 			
 		case UIDeviceiPhoneSimulator: return 0;

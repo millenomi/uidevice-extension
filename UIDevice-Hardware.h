@@ -46,6 +46,7 @@ enum {
 	UIDeviceSupportsCompass = 1 << 9,
 	UIDeviceSupportsAccessibility = 1 << 10,
 	UIDeviceSupportsVoiceControl = 1 << 11,
+	UIDeviceSupportsBluetooth = 1 << 12,
 };
 
 @interface UIDevice (Hardware)
